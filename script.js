@@ -89,9 +89,12 @@
 
  //  ******  cloneDeep ******
   function cloneDeep(obj) {
-    let clone = {};
+    let clone = {} ;
+    if (Array.isArray(obj1)) { 
+      clone = [];
+    }  
     for (let key in obj) {
-      if (typeof obj[key] === "object") {
+      if (typeof obj1[key] === "object" && !Array.isArray(obj[key])) {
         clone[key] = cloneDeep(obj[key]);
       } else {
         clone[key] = obj[key];
